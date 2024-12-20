@@ -24,17 +24,105 @@ In timing diagram Q0 is changing as soon as the negative edge of clock pulse is 
 
 **Procedure**
 
-/* write all the steps invloved */
+/*Procedure for the 4-Bit Ripple Counter Program
+Understand the Purpose:
+
+1.Open Quartus software and create a new project.
+Name the project appropriately (e.g., Ripple_Counter).
+Set the working directory and choose the desired FPGA device.
+Write the Verilog Code:
+
+2.Create a new Verilog file in the Quartus environment.
+Copy the provided exp12 module into the Verilog file.
+This module defines the counter logic that increments on the rising edge of the clock and resets after reaching 15.
+Write the Testbench Code:
+
+3.Create another Verilog file for the testbench.
+Copy the RippleCounter_tb testbench module into this file.
+The testbench generates the clock signal and verifies the functionality of the counter by simulating 16 clock cycles.
+Compile the Design:
+
+4.Add both the design (exp12) and testbench files to the Quartus project.
+Perform syntax and functional checks using the compilation option.
+
+5.Open the simulation tool (e.g., ModelSim, integrated with Quartus).
+Run the simulation for the testbench (RippleCounter_tb).
+Observe the waveforms or display output to verify the counter's behavior. */
 
 **PROGRAM**
 
 /* Program for 4 Bit Ripple Counter and verify its truth table in quartus using Verilog programming.
 
- Developed by: RegisterNumber:
+
+module exp12(
+   input wire clk,  // Clock input
+   output reg [3:0] count // 4-bit counter output
+);
+
+// Counter logic
+always @(posedge clk) begin
+   if (count == 4'b1111) // Reset when count reaches 15
+       count <= 4'b0000;
+   else
+       count <= count + 1; // Increment count
+end
+
+endmodule
+
+// Testbench
+module RippleCounter_tb;
+
+// Inputs
+reg clk;
+
+// Outputs
+wire [3:0] count;
+
+// Instantiate the counter
+RippleCounter uut(
+   .clk(clk),
+   .count(count)
+);
+
+// Clock generation
+initial begin
+   clk = 0;
+   forever #5 clk = ~clk; // Toggle clock every 5 time units
+end
+
+// Stimulus
+initial begin
+   // Wait for a few clock cycles
+   #10;
+   
+   // Display header
+   $display("Time | Count");
+   $display("-----------------");
+   
+   // Functional table testing
+   // Increment count 16 times and display the count
+   repeat (16) begin
+       #5; // Wait for one clock cycle
+       $display("%4d | %b", $time, count);
+   end
+   
+   // End simulation
+   $finish;
+end
+
+endmodule
+
+ Developed by:AMAN SINGH
+ RegisterNumber:24900215
 */
 
 **RTL LOGIC FOR 4 Bit Ripple Counter**
+![Screenshot (1755)](https://github.com/user-attachments/assets/4749db05-36a3-4115-b7e1-c1e75f3b2bc1)
+
 
 **TIMING DIGRAMS FOR 4 Bit Ripple Counter**
+![Screenshot (1756)](https://github.com/user-attachments/assets/f3f4ba98-cecd-4247-ba5f-18457b12e3cf)
+
 
 **RESULTS**
+Thus 4 Bit Ripple Counter implemented using verilog and their functionality validated using their functional tables
