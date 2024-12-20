@@ -50,8 +50,7 @@ Run the simulation for the testbench (RippleCounter_tb).
 Observe the waveforms or display output to verify the counter's behavior. */
 
 **PROGRAM**
-
-/* Program for 4 Bit Ripple Counter and verify its truth table in quartus using Verilog programming.
+Program for 4 Bit Ripple Counter and verify its truth table in quartus using Verilog programming.
 
 
 module exp12(
@@ -114,7 +113,7 @@ endmodule
 
  Developed by:AMAN SINGH
  RegisterNumber:24900215
-*/
+
 
 **RTL LOGIC FOR 4 Bit Ripple Counter**
 ![Screenshot (1755)](https://github.com/user-attachments/assets/4749db05-36a3-4115-b7e1-c1e75f3b2bc1)
