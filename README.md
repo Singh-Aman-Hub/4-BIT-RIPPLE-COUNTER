@@ -120,7 +120,8 @@ endmodule
 
 
 **TIMING DIGRAMS FOR 4 Bit Ripple Counter**
-![Screenshot (1756)](https://github.com/user-attachments/assets/f3f4ba98-cecd-4247-ba5f-18457b12e3cf)
+![WhatsApp Image 2024-12-23 at 01 27 44](https://github.com/user-attachments/assets/02718c12-7d83-4dc1-a6be-b0af0ed1a467)
+
 
 
 **RESULTS**
